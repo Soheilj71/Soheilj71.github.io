@@ -3,795 +3,1006 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ML Engineer specializing in drug discovery, molecular property prediction, and computational biology.">
-<<<<<<< HEAD
-    <title>[Soheil Jamali] — ML Engineer | Drug Discovery</title>
-=======
-
-    <!-- ============================================================
-         PAGE TITLE — change "[Soheil jamali]" to your real name
-    ============================================================ -->
-    <title>Soheil Jamali — ML Engineer | Drug Discovery</title>
-
-    <!-- ============================================================
-         FONTS
-         - Headings use "DM Serif Display" (serif, academic look)
-         - Everything else uses "Inter" (clean sans-serif)
-         To change fonts: replace the Google Fonts URL below and
-         update --font-heading / --font-body in :root below.
-    ============================================================ -->
->>>>>>> 7afa2205cebc97126b631c0e413de4f5b980394d
+    <meta name="description" content="Soheil Jalali — ML Engineer specializing in drug discovery, molecular property prediction, and computational biology.">
+    <meta property="og:title" content="Soheil Jalali — ML Engineer | Drug Discovery">
+    <meta property="og:description" content="ML Engineer building predictive models for drug discovery and computational biology.">
+    <meta property="og:image" content="https://soheilj71.github.io/og-image.png">
+    <meta property="og:url" content="https://soheilj71.github.io">
+    <meta property="og:type" content="website">
+    <title>Soheil Jalali — ML Engineer | Drug Discovery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ============================================================
-           DESIGN TOKENS — change these to restyle the whole site
-
-           --black       : main text color
-           --gray-dark   : secondary text (subtitles, descriptions)
-           --gray         : muted text (dates, labels)
-           --gray-light  : very muted text
-           --gray-border : card borders and dividers
-           --gray-bg     : section background (alternating sections)
-           --white       : page background
-
-           --font-heading: serif font used in big titles
-           --font-body   : sans-serif used everywhere else
-        ============================================================ */
+        /* =============================================
+           VARIABLES
+        ============================================= */
         :root {
-            --black:        #0d0d0d;
-            --gray-dark:    #2a2a2a;
-            --gray:         #555555;
-            --gray-light:   #888888;
-            --gray-border:  #e0e0e0;
-            --gray-bg:      #f7f7f7;
-            --white:        #ffffff;
-
-            --font-heading: 'DM Serif Display', Georgia, serif;
-            --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
-            --pad: 96px;         /* vertical padding on each section */
-            --radius: 6px;       /* corner rounding on cards/buttons */
-            --max-width: 1080px; /* max page width */
+            --bg:           #0a0a0a;
+            --surface:      #111111;
+            --surface2:     #161616;
+            --border:       #1e1e1e;
+            --border-hover: #333333;
+            --accent:       #6366f1;
+            --accent2:      #a855f7;
+            --accent-glow:  rgba(99,102,241,0.15);
+            --text:         #ffffff;
+            --text2:        #888888;
+            --text3:        #444444;
+            --green:        #22c55e;
+            --nav-h:        64px;
+            --pad:          88px;
+            --radius:       12px;
         }
 
-        /* ============================================================
+        /* =============================================
            RESET
-        ============================================================ */
+        ============================================= */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: var(--font-body);
-            color: var(--black);
-            background: var(--white);
-            line-height: 1.7;
-            font-size: 16px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 15px;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; }
 
-        /* ============================================================
+        /* =============================================
            LAYOUT
-        ============================================================ */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 32px;
-        }
+        ============================================= */
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
         section { padding: var(--pad) 0; }
 
-        /* ============================================================
-           SECTION HEADERS (used in About, Projects, Skills, Blog)
-           - .section-label : small uppercase label above the title
-           - .section-title : the big heading
-           - .section-desc  : optional subtitle below
-        ============================================================ -->
+        /* =============================================
+           UTILITIES
+        ============================================= */
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .section-label {
-            display: block;
-            font-family: var(--font-body);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Courier New', monospace;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--gray-light);
-            margin-bottom: 10px;
+            color: var(--accent);
+            margin-bottom: 18px;
+        }
+        .section-label::after {
+            content: '';
+            display: inline-block;
+            width: 48px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.4;
         }
 
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: clamp(28px, 3.5vw, 40px);
-            font-weight: 400;          /* DM Serif Display looks best at normal weight */
-            color: var(--black);
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-            margin-bottom: 14px;
-        }
-
-        .section-desc {
+        .section-intro {
             font-size: 15px;
-            color: var(--gray);
-            max-width: 520px;
+            color: var(--text2);
+            margin-bottom: 44px;
+            line-height: 1.7;
         }
 
-        .section-header {
-            margin-bottom: 52px;
+        /* =============================================
+           REVEAL ANIMATIONS
+        ============================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
         }
+        .reveal.visible { opacity: 1; transform: none; }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
 
-        .section-header.centered {
-            text-align: center;
-        }
-
-        .section-header.centered .section-desc {
-            margin: 0 auto;
-        }
-
-        /* ============================================================
+        /* =============================================
            NAVIGATION
-           - Change nav links: find the <ul class="nav-links"> block
-           - Change your name/logo: find <a class="nav-logo">
-        ============================================================ */
+        ============================================= */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
+            height: var(--nav-h);
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--gray-border);
+            background: rgba(10,10,10,0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
             transition: box-shadow 0.3s;
         }
-
-        nav.scrolled {
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-        }
+        nav.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,0.6); }
 
         .nav-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 60px;
+            height: var(--nav-h);
         }
 
-        /* ── Logo / your name ── */
         .nav-logo {
-            font-family: var(--font-body);
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--black);
-            letter-spacing: -0.3px;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text);
         }
+        .nav-logo span { color: var(--accent); }
 
-        /* ── Nav links ── */
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 36px;
+            gap: 30px;
             list-style: none;
         }
-
         .nav-links a {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--gray-light);
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--text2);
             transition: color 0.2s;
+            position: relative;
+            padding-bottom: 2px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0; right: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--text); }
+        .nav-links a.active::after { transform: scaleX(1); }
+
+        /* Hire me */
+        .hire-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 20px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: hire-pulse 2.5s ease-in-out infinite;
+        }
+        .hire-btn:hover {
+            background: #5254cc;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(99,102,241,0.45);
+            animation: none;
+        }
+        @keyframes hire-pulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.55); }
+            50%      { box-shadow: 0 0 0 8px rgba(99,102,241,0); }
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--black);
-        }
-
-        /* ── Mobile hamburger ── */
+        /* Hamburger */
         .hamburger {
             display: none;
             flex-direction: column;
             gap: 5px;
-            cursor: pointer;
             background: none;
             border: none;
             padding: 4px;
+            cursor: pointer;
         }
-
         .hamburger span {
             display: block;
-            width: 20px;
-            height: 1.5px;
-            background: var(--black);
+            width: 22px;
+            height: 2px;
+            background: var(--text);
             border-radius: 2px;
             transition: all 0.3s;
         }
-
-        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
         .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+        /* Mobile menu */
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 60px; left: 0; right: 0;
-            background: white;
-            border-bottom: 1px solid var(--gray-border);
+            top: var(--nav-h); left: 0; right: 0;
+            background: #0d0d0d;
+            border-bottom: 1px solid var(--border);
             z-index: 999;
+            padding: 8px 28px 24px;
         }
-
         .mobile-menu.open { display: block; }
-
         .mobile-menu a {
             display: block;
-            padding: 14px 32px;
+            padding: 14px 0;
             font-size: 15px;
-            color: var(--gray-dark);
-            border-bottom: 1px solid var(--gray-border);
-            transition: background 0.15s;
+            font-weight: 500;
+            color: var(--text2);
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s;
+        }
+        .mobile-menu a:last-of-type { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--text); }
+        .mobile-hire {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
         }
 
-        .mobile-menu a:hover { background: var(--gray-bg); }
-
-        /* ============================================================
+        /* =============================================
            BUTTONS
-           .btn-primary  : solid black button (main CTA)
-           .btn-secondary: outlined button (secondary CTA)
-
-           To change button text: find the <a class="btn ..."> tags
-           To change button color: edit background/border/color below
-        ============================================================ */
+        ============================================= */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
             padding: 12px 24px;
-            border-radius: var(--radius);
-            font-family: var(--font-body);
+            border-radius: 8px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.18s ease;
-            border: 1.5px solid transparent;
-            line-height: 1;
+            transition: all 0.2s;
+            font-family: inherit;
+            border: none;
         }
-
         .btn-primary {
-            background: var(--black);
-            color: var(--white);
-            border-color: var(--black);
+            background: var(--accent);
+            color: #fff;
         }
-
         .btn-primary:hover {
-            background: var(--gray-dark);
-            border-color: var(--gray-dark);
+            background: #5254cc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(99,102,241,0.4);
         }
-
-        .btn-secondary {
+        .btn-outline {
             background: transparent;
-            color: var(--black);
-            border-color: var(--gray-border);
+            color: var(--text);
+            border: 1px solid var(--border-hover);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .btn-ghost {
+            background: rgba(99,102,241,0.1);
+            color: #a5b4fc;
+            border: 1px solid rgba(99,102,241,0.2);
+        }
+        .btn-ghost:hover {
+            background: rgba(99,102,241,0.18);
+            transform: translateY(-1px);
+        }
+        .btn-sm { padding: 7px 15px; font-size: 12.5px; border-radius: 6px; }
+
+        /* =============================================
+           CARDS (shared)
+        ============================================= */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        }
+        .card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+        }
+        /* Top gradient line */
+        .card-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
         }
 
-        .btn-secondary:hover {
-            border-color: var(--black);
+        /* =============================================
+           TAGS / PILLS
+        ============================================= */
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag {
+            background: rgba(99,102,241,0.1);
+            color: #a5b4fc;
+            border: 1px solid rgba(99,102,241,0.22);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 100px;
+            letter-spacing: 0.2px;
         }
 
-        /* ============================================================
-           HERO SECTION
-           - Change your name: find <h1 class="hero-name">
-           - Change subtitle: find <p class="hero-subtitle">
-           - Change button labels: find the two .btn elements
-        ============================================================ */
+        /* =============================================
+           HERO
+        ============================================= */
         #home {
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            padding-top: 60px;
-            border-bottom: 1px solid var(--gray-border);
+            flex-direction: column;
+            justify-content: center;
+            padding-top: var(--nav-h);
+            position: relative;
+            overflow: hidden;
         }
-
-        .hero-content { max-width: 660px; }
-
-        /* ── Big title ── */
-        .hero-name {
-            font-family: var(--font-heading);
-            font-size: clamp(40px, 6vw, 72px);
-            font-weight: 400;
-            line-height: 1.08;
-            letter-spacing: -1px;
-            color: var(--black);
-            margin-bottom: 20px;
+        .hero-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 65% 45%, rgba(99,102,241,0.14), transparent 68%);
+            pointer-events: none;
         }
+        .hero-main { flex: 1; display: flex; align-items: center; }
+        .hero-content { position: relative; z-index: 1; max-width: 740px; }
 
-        /* ── Subtitle under the name ── */
-        .hero-subtitle {
-            font-size: clamp(15px, 1.6vw, 17px);
-            color: var(--gray);
-            font-weight: 400;
-            max-width: 500px;
-            margin-bottom: 36px;
-            line-height: 1.65;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        /* ── Small line of metadata under buttons ── */
-        .hero-meta {
-            display: flex;
+        .hero-badge {
+            display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-top: 64px;
-            color: var(--gray-light);
-            font-size: 13px;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.25);
+            color: #a5b4fc;
+            font-size: 12.5px;
+            font-weight: 500;
+            padding: 7px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+        .badge-dot {
+            width: 7px; height: 7px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: green-pulse 1.8s ease-in-out infinite;
+        }
+        @keyframes green-pulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+            50%      { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
         }
 
-        .hero-meta-line {
-            width: 28px;
-            height: 1px;
-            background: var(--gray-border);
+        .hero-title {
+            font-size: clamp(38px, 5.5vw, 70px);
+            font-weight: 800;
+            line-height: 1.06;
+            letter-spacing: -2.5px;
+            margin-bottom: 22px;
         }
+        .hero-subtitle {
+            font-size: clamp(15px, 1.7vw, 17px);
+            color: var(--text2);
+            max-width: 540px;
+            margin-bottom: 38px;
+            line-height: 1.72;
+        }
+        .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
 
-        /* ============================================================
-           ABOUT SECTION
-           - Change bio paragraphs: find the three <p> tags in .about-bio
-           - Change stat numbers: find <div class="stat-number">
-           - Change stat labels:  find <div class="stat-label">
-        ============================================================ */
-        #about { background: var(--gray-bg); }
-
-        .about-grid {
+        /* Stat row */
+        .stat-row {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 80px;
-            align-items: start;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
         }
-
-        .about-bio p {
-            font-size: 15.5px;
-            color: var(--gray);
-            margin-bottom: 16px;
-            line-height: 1.75;
-        }
-
-        .about-bio p:last-child { margin-bottom: 0; }
-
-        /* ── 4 stat cards ── */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
         .stat-card {
-            background: var(--white);
-            border: 1px solid var(--gray-border);
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 24px 20px;
+            padding: 20px;
             text-align: center;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, transform 0.2s;
         }
-
-        .stat-card:hover { border-color: var(--black); }
-
-        /* ── Change the number: edit the text inside .stat-number ── */
+        .stat-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
         .stat-number {
-            font-family: var(--font-heading);
-            font-size: 36px;
-            font-weight: 400;
-            color: var(--black);
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
             line-height: 1;
             margin-bottom: 6px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+        .stat-label { font-size: 12px; color: var(--text2); font-weight: 500; }
 
-        .stat-label {
-            font-size: 12px;
-            color: var(--gray-light);
+        /* Marquee */
+        .marquee-wrap {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            position: relative;
+            padding: 16px 0;
+            margin-top: 56px;
+        }
+        .marquee-wrap::before, .marquee-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 100px;
+            z-index: 2;
+        }
+        .marquee-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+        .marquee-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee-scroll 32s linear infinite;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+        @keyframes marquee-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 13px;
             font-weight: 500;
-            letter-spacing: 0.3px;
+            color: var(--text2);
+            white-space: nowrap;
         }
+        .marquee-sep { color: var(--accent); opacity: 0.4; margin-left: 20px; }
 
-        /* ============================================================
-           PROJECTS SECTION
-           - To add/remove a project: copy or delete a .project-card block
-           - Change project title: edit <h3 class="project-title">
-           - Change description:   edit <p class="project-desc">
-           - Change tags:          edit the <span class="tag"> items
-           - Change GitHub link:   edit href on <a class="project-link">
-        ============================================================ */
+        /* =============================================
+           DIVIDERS
+        ============================================= */
+        .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+
+        /* =============================================
+           PROJECTS
+        ============================================= */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 20px;
         }
-
-        .project-card {
-            background: var(--white);
-            border: 1px solid var(--gray-border);
-            border-radius: var(--radius);
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .project-card:hover {
-            border-color: var(--black);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .project-title {
-            font-family: var(--font-body);
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--black);
-            margin-bottom: 8px;
-        }
-
-        .project-desc {
-            font-size: 13.5px;
-            color: var(--gray);
-            margin-bottom: 18px;
-            flex: 1;
-            line-height: 1.6;
-        }
-
-        /* ── Tags (tool badges) ── */
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 20px;
-        }
-
-        /* ── To change tag style: edit .tag below ── */
-        .tag {
-            background: transparent;
-            color: var(--gray);
-            border: 1px solid var(--gray-border);
+        .proj-num {
+            font-family: 'Courier New', monospace;
             font-size: 11px;
-            font-weight: 500;
-            padding: 3px 10px;
-            border-radius: 100px;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: 1px;
+            margin-bottom: 14px;
         }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 12.5px;
-            font-weight: 500;
-            color: var(--gray-light);
-            transition: color 0.2s, gap 0.2s;
+        .proj-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+            line-height: 1.35;
         }
-
-        .project-link:hover {
-            color: var(--black);
-            gap: 8px;
-        }
-
-        /* ============================================================
-           SKILLS SECTION
-           - To add a skill: add a <span class="skill-pill">Name</span>
-           - To add a category: copy a .skill-category block
-           - To rename a category: edit the .skill-cat-title text
-        ============================================================ */
-        #skills { background: var(--gray-bg); }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .skill-category {
-            background: var(--white);
-            border: 1px solid var(--gray-border);
-            border-radius: var(--radius);
-            padding: 28px;
-        }
-
-        .skill-cat-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .proj-desc {
+            font-size: 13.5px;
+            color: var(--text2);
+            line-height: 1.65;
             margin-bottom: 18px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--gray-border);
         }
+        .card-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
 
-        /* ── Category emoji icon — change the text inside the span ── */
-        .skill-cat-icon {
-            font-size: 18px;
-            line-height: 1;
-        }
+        /* =============================================
+           TUTORIALS
+        ============================================= */
+        #tutorials { background: rgba(99,102,241,0.025); }
 
-        .skill-cat-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--black);
-        }
-
-        .skill-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        /* ── Skill pill style ── */
-        .skill-pill {
-            background: var(--gray-bg);
-            color: var(--gray-dark);
-            font-size: 12.5px;
-            font-weight: 400;
-            padding: 5px 13px;
+        .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+        .filter-btn {
+            padding: 7px 18px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text2);
             border-radius: 100px;
-            border: 1px solid var(--gray-border);
-            transition: border-color 0.2s, color 0.2s;
-            cursor: default;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
         }
+        .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-        .skill-pill:hover {
-            border-color: var(--black);
-            color: var(--black);
-        }
-
-        /* ============================================================
-           BLOG SECTION
-           - Change post title: edit <h3 class="blog-title">
-           - Change date:       edit <div class="blog-date">
-           - Change summary:    edit <p class="blog-summary">
-           - Change link:       edit href on <a class="blog-link">
-        ============================================================ */
-        .blog-grid {
+        .tutorials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 18px;
         }
-
-        .blog-card {
-            background: var(--white);
-            border: 1px solid var(--gray-border);
+        .tut-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 28px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
         }
-
-        .blog-card:hover {
-            border-color: var(--black);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        .tut-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.45);
         }
+        .tut-card.hidden { display: none; }
 
-        .blog-date {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--gray-light);
-            text-transform: uppercase;
+        .tut-cat {
+            display: inline-flex;
+            font-size: 10px;
+            font-weight: 700;
             letter-spacing: 1.5px;
-            margin-bottom: 10px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-bottom: 14px;
+            width: fit-content;
         }
+        .cat-ml   { background: rgba(99,102,241,0.15); color: #a5b4fc; }
+        .cat-prog { background: rgba(59,130,246,0.15);  color: #93c5fd; }
+        .cat-drug { background: rgba(20,184,166,0.15);  color: #5eead4; }
+        .cat-proj { background: rgba(249,115,22,0.15);  color: #fb923c; }
 
-        .blog-title {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            font-weight: 400;
-            color: var(--black);
-            line-height: 1.35;
-            margin-bottom: 12px;
+        .tut-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
-
-        .blog-summary {
-            font-size: 13.5px;
-            color: var(--gray);
+        .tut-desc {
+            font-size: 13px;
+            color: var(--text2);
             line-height: 1.65;
             flex: 1;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
+        .tut-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .diff {
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 2px 9px;
+            border-radius: 4px;
+        }
+        .diff-beg  { background: rgba(34,197,94,0.12);  color: #4ade80; }
+        .diff-int  { background: rgba(245,158,11,0.12); color: #fbbf24; }
+        .diff-adv  { background: rgba(239,68,68,0.12);  color: #f87171; }
 
-        .blog-link {
+        .tut-read-time, .tut-date {
+            font-size: 11px;
+            color: var(--text3);
+        }
+        .tut-link {
             display: inline-flex;
             align-items: center;
             gap: 5px;
             font-size: 12.5px;
-            font-weight: 500;
-            color: var(--gray-light);
-            transition: color 0.2s, gap 0.2s;
+            font-weight: 600;
+            color: var(--accent);
+            transition: gap 0.2s, color 0.2s;
         }
+        .tut-link:hover { gap: 9px; color: #a5b4fc; }
 
-        .blog-link:hover {
-            color: var(--black);
-            gap: 8px;
+        /* =============================================
+           SOFTWARE
+        ============================================= */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
-
-        /* ============================================================
-           CONTACT SECTION
-           - Change email:    find href="mailto:..." and the link text
-           - Change GitHub:   find href="https://github.com/..."
-           - Change LinkedIn: find href="[your-linkedin-url]"
-           - Change tagline:  find <p class="contact-tagline">
-        ============================================================ */
-        #contact {
-            background: var(--black);
-        }
-
-        #contact .section-label { color: #555; }
-        #contact .section-title { color: var(--white); }
-
-        .contact-tagline {
-            font-size: 15px;
-            color: #777;
-            margin-bottom: 44px;
-            max-width: 460px;
-            line-height: 1.6;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        /* ── Each contact button ── */
-        .contact-link {
+        .app-header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+        .app-icon {
+            width: 52px; height: 52px;
+            border-radius: 13px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 13px 22px;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .icon-1 { background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+        .icon-2 { background: linear-gradient(135deg, #14b8a6, #3b82f6); }
+        .app-name { font-size: 19px; font-weight: 700; letter-spacing: -0.4px; }
+        .version-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 8px;
+            background: rgba(99,102,241,0.14);
+            color: #a5b4fc;
+            border-radius: 4px;
+        }
+        .status-badge {
+            display: inline-block;
+            font-size: 10.5px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 5px;
+            margin-bottom: 16px;
+        }
+        .s-active  { background: rgba(34,197,94,0.12);  color: #4ade80; }
+        .s-soon    { background: rgba(245,158,11,0.12); color: #fbbf24; }
+        .s-release { background: rgba(99,102,241,0.12); color: #a5b4fc; }
+        .app-desc { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 18px; }
+
+        /* =============================================
+           ABOUT
+        ============================================= */
+        #about { background: rgba(99,102,241,0.02); }
+
+        .about-story {
+            max-width: 680px;
+            margin-bottom: 48px;
+        }
+        .about-story-title {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-bottom: 18px;
+        }
+        .about-story p {
+            font-size: 16px;
+            color: var(--text2);
+            line-height: 1.82;
+        }
+
+        .beyond-card {
+            background: var(--surface);
+            border: 1px solid rgba(168,85,247,0.3);
             border-radius: var(--radius);
-            color: #ccc;
-            font-size: 14px;
-            font-weight: 400;
-            transition: all 0.18s;
+            padding: 32px;
+            max-width: 680px;
+            margin-bottom: 56px;
+            position: relative;
+            overflow: hidden;
         }
-
-        .contact-link:hover {
-            background: var(--white);
-            border-color: var(--white);
-            color: var(--black);
-        }
-
-        .contact-icon { width: 17px; height: 17px; flex-shrink: 0; }
-
-        /* ============================================================
-           FOOTER
-           - Change footer text: find the <footer> block at the bottom
-        ============================================================ */
-        footer {
-            background: #111;
-            color: #444;
-            text-align: center;
-            padding: 24px;
-            font-size: 13px;
-            border-top: 1px solid #1a1a1a;
-        }
-
-        footer a { color: #666; }
-        footer a:hover { color: #aaa; }
-
-        /* ============================================================
-           SCROLL REVEAL ANIMATION
-           Elements with class "reveal" fade in when scrolled into view.
-           To disable: remove class="reveal" from any element.
-        ============================================================ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(18px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* ============================================================
-           DIVIDER LINE (used between sections)
-        ============================================================ */
-        .divider {
+        .beyond-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
             height: 1px;
-            background: var(--gray-border);
-            margin: 0;
+            background: linear-gradient(90deg, var(--accent2), var(--accent), transparent);
+        }
+        .beyond-title { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+        .beyond-text  { font-size: 14.5px; color: var(--text2); line-height: 1.78; }
+
+        .companies-title { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 24px; }
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+        .company-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .company-card:hover {
+            border-color: rgba(99,102,241,0.4);
+            transform: translateY(-3px);
+        }
+        .company-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+        .company-desc { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 12px; }
+        .interested-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 9px;
+            background: rgba(99,102,241,0.12);
+            color: #a5b4fc;
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 4px;
         }
 
-        /* ============================================================
-           RESPONSIVE — mobile breakpoints
-        ============================================================ */
-        @media (max-width: 960px) {
-            .about-grid       { grid-template-columns: 1fr; gap: 48px; }
-            .projects-grid    { grid-template-columns: repeat(2, 1fr); }
-            .skills-grid      { grid-template-columns: 1fr; }
-            .blog-grid        { grid-template-columns: repeat(2, 1fr); }
+        /* =============================================
+           CONTACT
+        ============================================= */
+        .contact-headline {
+            font-size: clamp(28px, 4vw, 46px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 14px;
+        }
+        .contact-sub {
+            font-size: 15px;
+            color: var(--text2);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 52px;
         }
 
-        @media (max-width: 640px) {
-            :root { --pad: 64px; }
-            .nav-links        { display: none; }
-            .hamburger        { display: flex; }
-            .projects-grid    { grid-template-columns: 1fr; }
-            .blog-grid        { grid-template-columns: 1fr; }
-            .stats-grid       { grid-template-columns: 1fr 1fr; }
-            .hero-buttons     { flex-direction: column; align-items: flex-start; }
-            .contact-links    { flex-direction: column; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+            display: block;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+        }
+        .contact-card:hover {
+            border-color: rgba(99,102,241,0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+        }
+        .contact-icon-wrap {
+            width: 50px; height: 50px;
+            background: rgba(99,102,241,0.12);
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+        }
+        .contact-lbl {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text2);
+            margin-bottom: 8px;
+        }
+        .contact-val {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .contact-card:hover .contact-val { color: var(--accent); }
+
+        .availability {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13.5px;
+            color: var(--text2);
+        }
+        .avail-dot {
+            width: 8px; height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: green-pulse 1.8s ease-in-out infinite;
+        }
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 44px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 24px;
+            padding-bottom: 32px;
+        }
+        .footer-left { font-size: 13px; color: var(--text2); }
+        .footer-center { display: flex; gap: 24px; justify-content: center; }
+        .footer-center a { font-size: 13px; color: var(--text2); transition: color 0.2s; }
+        .footer-center a:hover { color: var(--text); }
+        .footer-right { font-size: 12.5px; color: var(--text2); text-align: right; }
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text3);
+        }
+
+        /* =============================================
+           SCROLL TO TOP
+        ============================================= */
+        .scroll-top {
+            position: fixed;
+            bottom: 28px; right: 28px;
+            width: 42px; height: 42px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: all 0.3s;
+            z-index: 100;
+            color: var(--text2);
+        }
+        .scroll-top:hover { border-color: var(--accent); color: var(--accent); }
+        .scroll-top.show { opacity: 1; transform: translateY(0); }
+
+        /* =============================================
+           RESPONSIVE
+        ============================================= */
+        @media (max-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .companies-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 900px) {
+            .stat-row { grid-template-columns: repeat(2, 1fr); }
+            .tutorials-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-right { text-align: center; }
+        }
+        @media (max-width: 768px) {
+            :root { --pad: 60px; }
+            .nav-links, .hire-btn { display: none; }
+            .hamburger { display: flex; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .software-grid { grid-template-columns: 1fr; }
+            .tutorials-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 500px) {
+            .companies-grid { grid-template-columns: 1fr; }
+            .hero-title { letter-spacing: -1.5px; }
+            .footer-center { flex-wrap: wrap; gap: 14px; }
         }
     </style>
 </head>
 <body>
 
-<!-- ================================================================
+<!-- ================================================
      NAVIGATION
-     ── Logo: change "Soheil Jamali" to your name
-     ── Links: add/remove <li> items to change nav items
-================================================================ -->
+================================================ -->
 <nav id="navbar">
     <div class="container">
         <div class="nav-inner">
-            <a href="#home" class="nav-logo">Soheil Jamali</a>
+            <a href="#home" class="nav-logo">Soheil<span>.</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#tutorials">Tutorials</a></li>
+                <li><a href="#software">Software</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
+            <button class="hire-btn" onclick="scrollTo('contact')">Hire me ✦</button>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
         </div>
     </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#home"     onclick="closeMobileMenu()">Home</a>
-    <a href="#about"    onclick="closeMobileMenu()">About</a>
-    <a href="#projects" onclick="closeMobileMenu()">Projects</a>
-    <a href="#skills"   onclick="closeMobileMenu()">Skills</a>
-    <a href="#blog"     onclick="closeMobileMenu()">Blog</a>
-    <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
+    <a href="#home"      onclick="closeMobile()">Home</a>
+    <a href="#projects"  onclick="closeMobile()">Projects</a>
+    <a href="#tutorials" onclick="closeMobile()">Tutorials</a>
+    <a href="#software"  onclick="closeMobile()">Software</a>
+    <a href="#about"     onclick="closeMobile()">About</a>
+    <a href="#contact"   onclick="closeMobile()">Contact</a>
+    <button class="mobile-hire" onclick="closeMobile(); scrollTo('contact')">Hire me ✦</button>
 </div>
 
 
-<!-- ================================================================
-     HERO SECTION
-     ── Big name/title: edit <h1 class="hero-name">
-     ── Subtitle:       edit <p class="hero-subtitle">
-     ── Button 1 text:  change "View projects" inside .btn-primary
-     ── Button 2 text:  change "Download CV"  inside .btn-secondary
-     ── Metadata line:  edit the text after the dash in .hero-meta
-================================================================ -->
+<!-- ================================================
+     HERO
+================================================ -->
 <section id="home">
-    <div class="container">
-        <div class="hero-content">
+    <div class="hero-glow"></div>
+    <div class="hero-main">
+        <div class="container">
+            <div class="hero-content">
 
-            <h1 class="hero-name">
-                ML engineer · drug discovery
-            </h1>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Open to pharma ML roles · 2026
+                </div>
 
-            <p class="hero-subtitle">
-                Building predictive models for molecular property prediction,
-                ADMET screening, and target identification.
-            </p>
+                <h1 class="hero-title">
+                    Drug discovery powered by<br>
+                    <span class="gradient-text">machine learning</span>
+                </h1>
 
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    View projects
-                </a>
-                <!-- href="cv.pdf" — put your CV file next to index.html -->
-                <a href="cv.pdf" class="btn btn-secondary" download>
-                    Download CV
-                </a>
+                <p class="hero-subtitle">
+                    Building predictive models for molecular properties, ADMET screening,
+                    target identification, and clinical trial analysis.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View my projects</a>
+                    <a href="cv.pdf" class="btn btn-outline" download>Download CV</a>
+                </div>
+
+                <div class="stat-row">
+                    <div class="stat-card">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">ML Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">Tutorials</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Papers read</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Tools mastered</div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="hero-meta">
-                <div class="hero-meta-line"></div>
-                <!-- ── Edit your location and title here ── -->
-                ML Engineer &nbsp;·&nbsp; Drug Discovery &nbsp;·&nbsp; [Fayetteville, Arkansas, USA]
-            </div>
-
+    <!-- Marquee — full width, outside container -->
+    <div class="marquee-wrap">
+        <div class="marquee-track">
+            <span class="marquee-item">RDKit<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">DeepChem<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">PyTorch<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">HuggingFace<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">scikit-learn<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">BioPython<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">ChEMBL<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">XGBoost<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">spaCy<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">pandas<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">NumPy<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">Docker<span class="marquee-sep">·</span></span>
+            <!-- duplicate for seamless loop -->
+            <span class="marquee-item">RDKit<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">DeepChem<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">PyTorch<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">HuggingFace<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">scikit-learn<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">BioPython<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">ChEMBL<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">XGBoost<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">spaCy<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">pandas<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">NumPy<span class="marquee-sep">·</span></span>
+            <span class="marquee-item">Docker<span class="marquee-sep">·</span></span>
         </div>
     </div>
 </section>
@@ -799,260 +1010,99 @@
 <div class="divider"></div>
 
 
-<!-- ================================================================
-     ABOUT SECTION
-     ── Edit the three <p> paragraphs below to change your bio
-     ── Edit .stat-number text (e.g. "2+") to update your stats
-     ── Edit .stat-label text to rename a stat card
-================================================================ -->
-<section id="about">
-    <div class="container">
-        <div class="about-grid">
-
-            <div class="about-bio reveal">
-                <div class="section-header">
-                    <span class="section-label">About</span>
-                    <h2 class="section-title">Background</h2>
-                </div>
-                <!-- ── Edit your bio here ── -->
-                <p>
-                    I am an ML engineer with a background in [your degree], passionate about
-                    applying machine learning to accelerate drug discovery. I specialize in
-                    building predictive models that extract meaningful signals from complex
-                    biological and chemical data.
-                </p>
-                <p>
-                    I work with molecular data, genomics, and clinical datasets to build
-                    end-to-end predictive pipelines. My work spans ADMET property prediction,
-                    molecular graph neural networks, and NLP applied to biomedical literature.
-                </p>
-                <p>
-                    Currently seeking roles at pharmaceutical and biotech companies where I
-                    can contribute to impactful, data-driven drug discovery efforts.
-                </p>
-            </div>
-
-            <div class="stats-grid reveal">
-                <!-- ── Change the number and label for each stat card ── -->
-                <div class="stat-card">
-                    <div class="stat-number">2+</div>
-                    <div class="stat-label">Years of Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Papers Read</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Tools Mastered</div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-
-<!-- ================================================================
-     PROJECTS SECTION
-     ── To add a project: copy one full <div class="project-card"> block
-     ── To remove a project: delete one full <div class="project-card"> block
-     ── Edit title, description, tags, and GitHub link per card
-================================================================ -->
+<!-- ================================================
+     PROJECTS
+================================================ -->
 <section id="projects">
     <div class="container">
-
-        <div class="section-header reveal">
-            <span class="section-label">Portfolio</span>
-            <h2 class="section-title">Projects</h2>
-            <p class="section-desc">Machine learning applied to pharmaceutical and biological problems.</p>
+        <div class="reveal">
+            <div class="section-label">// projects</div>
+            <p class="section-intro">End-to-end ML projects built on real pharmaceutical datasets.</p>
         </div>
 
         <div class="projects-grid">
 
-            <!-- PROJECT 1 ── Edit title, desc, tags, href below -->
-            <div class="project-card reveal">
-                <h3 class="project-title">Drug property prediction</h3>
-                <p class="project-desc">ADMET modeling using molecular fingerprints and ChEMBL data with ensemble ML models.</p>
-                <div class="project-tags">
-                    <span class="tag">RDKit</span>
-                    <span class="tag">scikit-learn</span>
-                    <span class="tag">Python</span>
+            <div class="card card-glow reveal">
+                <div class="proj-num">01</div>
+                <div class="proj-title">ADMET Property Predictor</div>
+                <div class="proj-desc">Predicting absorption, distribution, metabolism, excretion and toxicity from molecular structure using ChEMBL bioactivity data.</div>
+                <div class="tags">
+                    <span class="tag">RDKit</span><span class="tag">scikit-learn</span>
+                    <span class="tag">Python</span><span class="tag">ChEMBL</span>
                 </div>
-                <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- PROJECT 2 -->
-            <div class="project-card reveal">
-                <h3 class="project-title">Molecular GNN</h3>
-                <p class="project-desc">Graph nets for toxicity classification — atoms as nodes, bonds as edges.</p>
-                <div class="project-tags">
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">DeepChem</span>
-                </div>
-                <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- PROJECT 3 -->
-            <div class="project-card reveal">
-                <h3 class="project-title">Clinical NLP</h3>
-                <p class="project-desc">Trial endpoint extraction from ClinicalTrials.gov using fine-tuned BERT models.</p>
-                <div class="project-tags">
-                    <span class="tag">BERT</span>
-                    <span class="tag">spaCy</span>
-                    <span class="tag">HuggingFace</span>
-                </div>
-                <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- PROJECT 4 -->
-            <div class="project-card reveal">
-                <h3 class="project-title">Target identification</h3>
-                <p class="project-desc">ML pipeline on proteomics data to identify and prioritize drug targets.</p>
-                <div class="project-tags">
-                    <span class="tag">XGBoost</span>
-                    <span class="tag">BioPython</span>
-                    <span class="tag">pandas</span>
-                </div>
-                <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- PROJECT 5 -->
-            <div class="project-card reveal">
-                <h3 class="project-title">Drug repurposing</h3>
-                <p class="project-desc">Knowledge graph approach to identify novel therapeutic uses for existing approved drugs.</p>
-                <div class="project-tags">
-                    <span class="tag">NetworkX</span>
-                    <span class="tag">Python</span>
-                </div>
-                <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- PROJECT 6 -->
-            <div class="project-card reveal">
-                <h3 class="project-title">Bash automation scripts</h3>
-                <p class="project-desc">Bioinformatics pipeline automation for batch processing genomics and sequencing data.</p>
-                <div class="project-tags">
-                    <span class="tag">Bash</span>
-                    <span class="tag">Shell</span>
-                    <span class="tag">Linux</span>
-                </div>
-                <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-
-<!-- ================================================================
-     SKILLS SECTION
-     ── To add a skill pill: add <span class="skill-pill">Name</span>
-     ── To add a category: copy a full .skill-category block
-     ── To change category icon: edit the emoji in .skill-cat-icon
-================================================================ -->
-<section id="skills">
-    <div class="container">
-
-        <div class="section-header reveal">
-            <span class="section-label">Expertise</span>
-            <h2 class="section-title">Skills</h2>
-            <p class="section-desc">Tools and technologies across the ML and bioinformatics stack.</p>
-        </div>
-
-        <div class="skills-grid">
-
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <span class="skill-cat-icon">🤖</span>
-                    <span class="skill-cat-title">ML &amp; AI</span>
-                </div>
-                <div class="skill-pills">
-                    <span class="skill-pill">PyTorch</span>
-                    <span class="skill-pill">TensorFlow</span>
-                    <span class="skill-pill">scikit-learn</span>
-                    <span class="skill-pill">HuggingFace</span>
-                    <span class="skill-pill">XGBoost</span>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-outline btn-sm">GitHub →</a>
+                    <a href="#" class="btn btn-ghost btn-sm">Read tutorial →</a>
                 </div>
             </div>
 
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <span class="skill-cat-icon">🧬</span>
-                    <span class="skill-cat-title">Pharma / Bio Tools</span>
+            <div class="card card-glow reveal delay-1">
+                <div class="proj-num">02</div>
+                <div class="proj-title">Molecular Graph Neural Network</div>
+                <div class="proj-desc">Graph-based deep learning for molecular toxicity classification using atom and bond features as graph inputs.</div>
+                <div class="tags">
+                    <span class="tag">PyTorch Geometric</span>
+                    <span class="tag">DeepChem</span><span class="tag">GNN</span>
                 </div>
-                <div class="skill-pills">
-                    <span class="skill-pill">RDKit</span>
-                    <span class="skill-pill">DeepChem</span>
-                    <span class="skill-pill">BioPython</span>
-                    <span class="skill-pill">AlphaFold</span>
-                    <span class="skill-pill">ChEMBL API</span>
-                </div>
-            </div>
-
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <span class="skill-cat-icon">💻</span>
-                    <span class="skill-cat-title">Data &amp; Programming</span>
-                </div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">Bash</span>
-                    <span class="skill-pill">SQL</span>
-                    <span class="skill-pill">Pandas</span>
-                    <span class="skill-pill">NumPy</span>
-                    <span class="skill-pill">Jupyter</span>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-outline btn-sm">GitHub →</a>
+                    <a href="#" class="btn btn-ghost btn-sm">Read tutorial →</a>
                 </div>
             </div>
 
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <span class="skill-cat-icon">☁️</span>
-                    <span class="skill-cat-title">Platforms</span>
+            <div class="card card-glow reveal delay-2">
+                <div class="proj-num">03</div>
+                <div class="proj-title">Clinical Trial NLP Pipeline</div>
+                <div class="proj-desc">Extracting primary and secondary endpoints from ClinicalTrials.gov text using fine-tuned BioBERT.</div>
+                <div class="tags">
+                    <span class="tag">HuggingFace</span><span class="tag">BioBERT</span>
+                    <span class="tag">spaCy</span><span class="tag">NLP</span>
                 </div>
-                <div class="skill-pills">
-                    <span class="skill-pill">GitHub</span>
-                    <span class="skill-pill">Linux</span>
-                    <span class="skill-pill">AWS</span>
-                    <span class="skill-pill">Docker</span>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-outline btn-sm">GitHub →</a>
+                    <a href="#" class="btn btn-ghost btn-sm">Read tutorial →</a>
+                </div>
+            </div>
+
+            <div class="card card-glow reveal">
+                <div class="proj-num">04</div>
+                <div class="proj-title">Target Identification ML</div>
+                <div class="proj-desc">Ranking potential drug targets from proteomics data using gradient boosting and feature importance analysis.</div>
+                <div class="tags">
+                    <span class="tag">XGBoost</span><span class="tag">BioPython</span>
+                    <span class="tag">pandas</span><span class="tag">TCGA</span>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-outline btn-sm">GitHub →</a>
+                    <a href="#" class="btn btn-ghost btn-sm">Read tutorial →</a>
+                </div>
+            </div>
+
+            <div class="card card-glow reveal delay-1">
+                <div class="proj-num">05</div>
+                <div class="proj-title">Drug Repurposing Knowledge Graph</div>
+                <div class="proj-desc">Graph-based approach to finding new therapeutic uses for existing drugs via drug-protein interaction networks.</div>
+                <div class="tags">
+                    <span class="tag">NetworkX</span><span class="tag">Python</span>
+                    <span class="tag">knowledge graphs</span>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-outline btn-sm">GitHub →</a>
+                    <a href="#" class="btn btn-ghost btn-sm">Read tutorial →</a>
+                </div>
+            </div>
+
+            <div class="card card-glow reveal delay-2">
+                <div class="proj-num">06</div>
+                <div class="proj-title">Bioinformatics Pipeline Automation</div>
+                <div class="proj-desc">Bash and Python scripts for automating common bioinformatics workflows on Linux HPC clusters.</div>
+                <div class="tags">
+                    <span class="tag">Bash</span><span class="tag">Python</span>
+                    <span class="tag">Linux</span><span class="tag">automation</span>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-outline btn-sm">GitHub →</a>
+                    <a href="#" class="btn btn-ghost btn-sm">Read tutorial →</a>
                 </div>
             </div>
 
@@ -1063,196 +1113,433 @@
 <div class="divider"></div>
 
 
-<!-- ================================================================
-     BLOG SECTION
-     ── To change a post: edit .blog-date, .blog-title, .blog-summary
-     ── To link to a real post: replace href="#" with your post URL
-     ── To add a post: copy one full .blog-card block
-================================================================ -->
-<section id="blog">
+<!-- ================================================
+     TUTORIALS
+================================================ -->
+<section id="tutorials">
     <div class="container">
-
-        <div class="section-header reveal">
-            <span class="section-label">Writing</span>
-            <h2 class="section-title">Blog &amp; notes</h2>
-            <p class="section-desc">Tutorials, paper summaries, and notes on ML in drug discovery.</p>
+        <div class="reveal">
+            <div class="section-label">// tutorials</div>
+            <p class="section-intro">Practical guides on ML, programming, AI, and drug discovery.</p>
         </div>
 
-        <div class="blog-grid">
+        <div class="filter-bar reveal">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ml-ai">ML &amp; AI</button>
+            <button class="filter-btn" data-filter="programming">Programming</button>
+            <button class="filter-btn" data-filter="drug-discovery">Drug Discovery</button>
+            <button class="filter-btn" data-filter="projects">Projects</button>
+        </div>
 
-            <!-- BLOG POST 1 ── Edit date, title, summary, link -->
-            <div class="blog-card reveal">
-                <div class="blog-date">June 2026</div>
-                <h3 class="blog-title">How AlphaFold changed drug discovery</h3>
-                <p class="blog-summary">How DeepMind's protein structure predictions have reshaped target identification and structure-based drug design.</p>
-                <a href="#" class="blog-link">
-                    Read more
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+        <div class="tutorials-grid" id="tutGrid">
+
+            <div class="tut-card" data-cat="drug-discovery">
+                <span class="tut-cat cat-drug">Drug Discovery</span>
+                <div class="tut-title">Getting started with RDKit</div>
+                <div class="tut-desc">A hands-on introduction to RDKit — the essential open-source cheminformatics library for molecular ML.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-beg">Beginner</span>
+                    <span class="tut-read-time">10 min</span>
+                    <span class="tut-date">· June 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
             </div>
 
-            <!-- BLOG POST 2 -->
-            <div class="blog-card reveal">
-                <div class="blog-date">May 2026</div>
-                <h3 class="blog-title">Getting started with RDKit for beginners</h3>
-                <p class="blog-summary">A practical introduction to RDKit — molecular representations, fingerprints, substructure search, and visualization.</p>
-                <a href="#" class="blog-link">
-                    Read more
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+            <div class="tut-card" data-cat="drug-discovery">
+                <span class="tut-cat cat-drug">Drug Discovery</span>
+                <div class="tut-title">Predicting drug-likeness with Lipinski's Rule of Five</div>
+                <div class="tut-desc">Using molecular descriptors to filter drug candidates based on Lipinski's classic rules using RDKit and Python.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-beg">Beginner</span>
+                    <span class="tut-read-time">12 min</span>
+                    <span class="tut-date">· May 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
             </div>
 
-            <!-- BLOG POST 3 -->
-            <div class="blog-card reveal">
-                <div class="blog-date">April 2026</div>
-                <h3 class="blog-title">Graph neural networks for molecular property prediction</h3>
-                <p class="blog-summary">How GNNs represent molecules as graphs and learn to predict solubility, toxicity, and binding affinity.</p>
-                <a href="#" class="blog-link">
-                    Read more
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+            <div class="tut-card" data-cat="drug-discovery">
+                <span class="tut-cat cat-drug">Drug Discovery</span>
+                <div class="tut-title">Loading and exploring ChEMBL data with Python</div>
+                <div class="tut-desc">How to query, load, and explore ChEMBL bioactivity datasets using the ChEMBL Python client and pandas.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-int">Intermediate</span>
+                    <span class="tut-read-time">15 min</span>
+                    <span class="tut-date">· May 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
+            </div>
+
+            <div class="tut-card" data-cat="ml-ai">
+                <span class="tut-cat cat-ml">ML &amp; AI</span>
+                <div class="tut-title">Introduction to molecular fingerprints for ML</div>
+                <div class="tut-desc">Understanding Morgan fingerprints, MACCS keys, and how to use them as features in scikit-learn ML models.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-int">Intermediate</span>
+                    <span class="tut-read-time">12 min</span>
+                    <span class="tut-date">· April 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
+            </div>
+
+            <div class="tut-card" data-cat="ml-ai">
+                <span class="tut-cat cat-ml">ML &amp; AI</span>
+                <div class="tut-title">Graph neural networks for molecules: a beginner guide</div>
+                <div class="tut-desc">How GNNs represent molecules as graphs and learn molecular property predictions from atomic structure.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-adv">Advanced</span>
+                    <span class="tut-read-time">20 min</span>
+                    <span class="tut-date">· April 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
+            </div>
+
+            <div class="tut-card" data-cat="programming">
+                <span class="tut-cat cat-prog">Programming</span>
+                <div class="tut-title">Python for bioinformatics: getting started</div>
+                <div class="tut-desc">Setting up a bioinformatics Python environment and working with biological sequence data using BioPython.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-beg">Beginner</span>
+                    <span class="tut-read-time">10 min</span>
+                    <span class="tut-date">· March 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
+            </div>
+
+            <div class="tut-card" data-cat="programming">
+                <span class="tut-cat cat-prog">Programming</span>
+                <div class="tut-title">Bash scripting for bioinformatics pipelines</div>
+                <div class="tut-desc">Automating repetitive bioinformatics tasks with shell scripts, loops, and pipeline chaining on Linux clusters.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-int">Intermediate</span>
+                    <span class="tut-read-time">14 min</span>
+                    <span class="tut-date">· March 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
+            </div>
+
+            <div class="tut-card" data-cat="drug-discovery">
+                <span class="tut-cat cat-drug">Drug Discovery</span>
+                <div class="tut-title">How AlphaFold changed drug discovery</div>
+                <div class="tut-desc">An accessible overview of how AlphaFold's protein structure predictions reshaped target-based drug design.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-beg">Beginner</span>
+                    <span class="tut-read-time">8 min</span>
+                    <span class="tut-date">· February 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
+            </div>
+
+            <div class="tut-card" data-cat="projects">
+                <span class="tut-cat cat-proj">Projects</span>
+                <div class="tut-title">ADMET predictor: full project walkthrough</div>
+                <div class="tut-desc">Step-by-step guide to building, training, and evaluating an ADMET property prediction model end to end.</div>
+                <div class="tut-meta">
+                    <span class="diff diff-adv">Advanced</span>
+                    <span class="tut-read-time">25 min</span>
+                    <span class="tut-date">· June 2026</span>
+                </div>
+                <a href="#" class="tut-link">Read tutorial →</a>
             </div>
 
         </div>
     </div>
 </section>
 
+<div class="divider"></div>
 
-<!-- ================================================================
-     CONTACT SECTION
-     ── Change email:    edit href="mailto:..." and the visible text
-     ── Change LinkedIn: edit href="[your-linkedin-url]"
-     ── Change tagline:  edit <p class="contact-tagline">
-================================================================ -->
+
+<!-- ================================================
+     SOFTWARE
+================================================ -->
+<section id="software">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-label">// software</div>
+            <p class="section-intro">Tools and applications I have built.</p>
+        </div>
+
+        <div class="software-grid">
+
+            <div class="card card-glow reveal">
+                <div class="app-header">
+                    <div class="app-icon icon-1">M</div>
+                    <div>
+                        <div class="app-name">MolPredict</div>
+                        <span class="version-badge">v0.1</span>
+                    </div>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <span class="status-badge s-active">● Active development</span>
+                </div>
+                <div class="app-desc">A command-line tool for predicting molecular properties from SMILES strings. Supports ADMET property prediction with pre-trained scikit-learn models and RDKit molecular descriptors.</div>
+                <div class="tags" style="margin-bottom:22px;">
+                    <span class="tag">Python</span><span class="tag">RDKit</span><span class="tag">CLI</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://github.com/Soheilj71" class="btn btn-outline btn-sm" target="_blank" rel="noopener">View on GitHub →</a>
+                    <a href="#" class="btn btn-ghost btn-sm">Live demo →</a>
+                </div>
+            </div>
+
+            <div class="card card-glow reveal delay-1">
+                <div class="app-header">
+                    <div class="app-icon icon-2">C</div>
+                    <div>
+                        <div class="app-name">ChEMBL Explorer</div>
+                        <span class="version-badge">v0.1</span>
+                    </div>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <span class="status-badge s-soon">⏳ Coming soon</span>
+                </div>
+                <div class="app-desc">A Python library for easy loading, filtering, and analysis of ChEMBL bioactivity datasets. Designed to simplify the data preparation step in pharmaceutical ML projects.</div>
+                <div class="tags" style="margin-bottom:22px;">
+                    <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">ChEMBL API</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://github.com/Soheilj71" class="btn btn-outline btn-sm" target="_blank" rel="noopener">View on GitHub →</a>
+                    <a href="#" class="btn btn-ghost btn-sm">Live demo →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ================================================
+     ABOUT
+================================================ -->
+<section id="about">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-label">// about</div>
+        </div>
+
+        <!-- Part A: Story -->
+        <div class="about-story reveal">
+            <div class="about-story-title">My story</div>
+            <p>I am an ML engineer with a background in <strong style="color:var(--text)">[YOUR DEGREE]</strong> from <strong style="color:var(--text)">[YOUR UNIVERSITY]</strong>. I became passionate about drug discovery after realizing that machine learning could dramatically accelerate how we find and develop new medicines. I specialize in molecular ML, cheminformatics, and clinical NLP — building models that turn raw biological data into actionable predictions for drug development.</p>
+        </div>
+
+        <!-- Part B: Beyond the code -->
+        <div class="beyond-card reveal">
+            <div class="beyond-title">✦ Beyond the code</div>
+            <p class="beyond-text">Outside of ML, I am interested in <strong style="color:var(--text)">[ADD YOUR INTERESTS — e.g. hiking, chess, history, cooking]</strong>. I believe the best ML engineers are curious about the world beyond their screen — the same intellectual drive that draws you to a new hiking trail is what makes you investigate why a model fails on edge cases.</p>
+        </div>
+
+        <!-- Part C: Companies -->
+        <div class="reveal">
+            <div class="companies-title">Companies I want to work with</div>
+            <div class="companies-grid">
+                <div class="company-card">
+                    <div class="company-name">Recursion Pharmaceuticals</div>
+                    <div class="company-desc">AI-first drug discovery at scale</div>
+                    <span class="interested-badge">Interested</span>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Insilico Medicine</div>
+                    <div class="company-desc">Generative AI for drug design</div>
+                    <span class="interested-badge">Interested</span>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">BenevolentAI</div>
+                    <div class="company-desc">ML for target identification</div>
+                    <span class="interested-badge">Interested</span>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Exscientia</div>
+                    <div class="company-desc">AI-driven drug design</div>
+                    <span class="interested-badge">Interested</span>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Roche</div>
+                    <div class="company-desc">Global pharma with strong ML division</div>
+                    <span class="interested-badge">Interested</span>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Novartis</div>
+                    <div class="company-desc">Data science and ML in drug development</div>
+                    <span class="interested-badge">Interested</span>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">AstraZeneca</div>
+                    <div class="company-desc">ML for genomics and precision medicine</div>
+                    <span class="interested-badge">Interested</span>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Pfizer</div>
+                    <div class="company-desc">AI and ML in clinical development</div>
+                    <span class="interested-badge">Interested</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ================================================
+     CONTACT
+================================================ -->
 <section id="contact">
     <div class="container">
-
-        <div class="section-header reveal">
-            <span class="section-label">Contact</span>
-            <h2 class="section-title">Get in touch</h2>
+        <div class="reveal">
+            <div class="section-label">// contact</div>
+            <div class="contact-headline">Let's work together</div>
+            <p class="contact-sub">I am open to ML engineering roles, research collaborations, and consulting in pharmaceutical and biotech companies.</p>
         </div>
 
-        <!-- ── Edit this line ── -->
-        <p class="contact-tagline">
-            Open to ML engineering roles in pharmaceutical and biotech companies.
-        </p>
+        <div class="contact-grid reveal">
 
-        <div class="contact-links reveal">
-
-            <!-- ── Change email address in both the href and the text ── -->
-            <a href="mailto:[sjamali@uark.com]" class="contact-link">
-                <svg class="contact-icon" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                sjamali@uark.com
+            <a href="mailto:[YOUR EMAIL]" class="contact-card">
+                <div class="contact-icon-wrap">
+                    <svg width="22" height="22" fill="none" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </div>
+                <div class="contact-lbl">Email</div>
+                <div class="contact-val">[YOUR EMAIL]</div>
             </a>
 
-            <a href="https://github.com/Soheilj71" class="contact-link" target="_blank" rel="noopener noreferrer">
-                <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                </svg>
-                github.com/Soheilj71
+            <a href="https://github.com/Soheilj71" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon-wrap">
+                    <svg width="22" height="22" fill="#a5b4fc" viewBox="0 0 24 24">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                </div>
+                <div class="contact-lbl">GitHub</div>
+                <div class="contact-val">github.com/Soheilj71</div>
             </a>
 
-            <!-- ── Replace [your-linkedin-url] with your real LinkedIn URL ── -->
-            <a href="https://www.linkedin.com/in/soheiljamali/" class="contact-link" target="_blank" rel="noopener noreferrer">
-                <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                LinkedIn
+            <a href="[YOUR LINKEDIN URL]" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon-wrap">
+                    <svg width="22" height="22" fill="#a5b4fc" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </div>
+                <div class="contact-lbl">LinkedIn</div>
+                <div class="contact-val">Connect with me</div>
             </a>
 
+        </div>
+
+        <div class="availability reveal">
+            <div class="avail-dot"></div>
+            Currently available · Responding within 24 hours
         </div>
     </div>
 </section>
 
 
-<!-- ================================================================
+<!-- ================================================
      FOOTER
-     ── Edit the copyright name and year here
-================================================================ -->
+================================================ -->
 <footer>
-    <p>&copy; 2026 Soheil Jamali &nbsp;·&nbsp; <a href="https://github.com/Soheilj71" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-left">Soheil Jalali · ML Engineer · Drug Discovery</div>
+            <div class="footer-center">
+                <a href="#home">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#tutorials">Tutorials</a>
+                <a href="#software">Software</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-right">Built with Python, curiosity, and too much coffee ☕</div>
+        </div>
+        <div class="footer-bottom">© 2026 Soheil Jalali · All rights reserved</div>
+    </div>
 </footer>
 
 
-<!-- ================================================================
-     JAVASCRIPT — no need to edit this unless you want to add features
-================================================================ -->
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24">
+        <path d="M18 15l-6-6-6 6"/>
+    </svg>
+</button>
+
+
+<!-- ================================================
+     JAVASCRIPT
+================================================ -->
 <script>
-    /* Navbar shadow on scroll */
+    /* Smooth scroll helper */
+    function scrollTo(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* Navbar shadow */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 10);
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+        document.getElementById('scrollTopBtn').classList.toggle('show', window.scrollY > 300);
     }, { passive: true });
 
-    /* Active nav link highlighting */
+    /* Active nav link */
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    link.classList.toggle('active',
-                        link.getAttribute('href') === '#' + entry.target.id);
-                });
+    const sectionObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
             }
         });
-    }, { rootMargin: '-45% 0px -45% 0px' });
-
-    sections.forEach(s => sectionObserver.observe(s));
+    }, { rootMargin: '-40% 0px -40% 0px' });
+    sections.forEach(s => sectionObs.observe(s));
 
     /* Mobile menu */
-    const hamburger  = document.getElementById('hamburger');
+    const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-
     hamburger.addEventListener('click', () => {
         const open = mobileMenu.classList.toggle('open');
         hamburger.classList.toggle('open', open);
     });
-
-    function closeMobileMenu() {
+    function closeMobile() {
         mobileMenu.classList.remove('open');
         hamburger.classList.remove('open');
     }
-
-    document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-            closeMobileMenu();
-        }
+    document.addEventListener('click', e => {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobile();
     });
 
     /* Scroll reveal */
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                revealObserver.unobserve(entry.target);
-            }
+    const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    /* Tutorial filter */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const tutCards   = document.querySelectorAll('#tutGrid .tut-card');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const f = btn.dataset.filter;
+            tutCards.forEach(c => {
+                const show = f === 'all' || c.dataset.cat === f;
+                c.style.display = show ? '' : 'none';
+            });
+        });
+    });
 
-    /* Smooth scroll for anchor links */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 60, behavior: 'smooth' });
-            }
+    /* Smooth anchor scroll (offset for fixed nav) */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 64, behavior: 'smooth' }); }
         });
     });
 </script>
-
 </body>
 </html>
