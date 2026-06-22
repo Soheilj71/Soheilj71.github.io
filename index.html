@@ -4,127 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ML Engineer specializing in drug discovery, molecular property prediction, and computational biology.">
+<<<<<<< HEAD
     <title>[Soheil Jamali] — ML Engineer | Drug Discovery</title>
+=======
+
+    <!-- ============================================================
+         PAGE TITLE — change "[Soheil jamali]" to your real name
+    ============================================================ -->
+    <title>Soheil Jamali — ML Engineer | Drug Discovery</title>
+
+    <!-- ============================================================
+         FONTS
+         - Headings use "DM Serif Display" (serif, academic look)
+         - Everything else uses "Inter" (clean sans-serif)
+         To change fonts: replace the Google Fonts URL below and
+         update --font-heading / --font-body in :root below.
+    ============================================================ -->
+>>>>>>> 7afa2205cebc97126b631c0e413de4f5b980394d
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* =============================================
-           RESET & VARIABLES
-        ============================================= */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* ============================================================
+           DESIGN TOKENS — change these to restyle the whole site
 
+           --black       : main text color
+           --gray-dark   : secondary text (subtitles, descriptions)
+           --gray         : muted text (dates, labels)
+           --gray-light  : very muted text
+           --gray-border : card borders and dividers
+           --gray-bg     : section background (alternating sections)
+           --white       : page background
+
+           --font-heading: serif font used in big titles
+           --font-body   : sans-serif used everywhere else
+        ============================================================ */
         :root {
-            --navy:         #0f172a;
-            --navy-mid:     #1e293b;
-            --navy-light:   #334155;
-            --teal:         #0d9488;
-            --teal-hover:   #0f766e;
-            --teal-light:   #14b8a6;
-            --teal-pale:    #f0fdfa;
-            --teal-border:  #99f6e4;
-            --gray:         #64748b;
-            --gray-light:   #f8fafc;
-            --gray-mid:     #f1f5f9;
-            --gray-border:  #e2e8f0;
+            --black:        #0d0d0d;
+            --gray-dark:    #2a2a2a;
+            --gray:         #555555;
+            --gray-light:   #888888;
+            --gray-border:  #e0e0e0;
+            --gray-bg:      #f7f7f7;
             --white:        #ffffff;
-            --pad:          96px;
+
+            --font-heading: 'DM Serif Display', Georgia, serif;
+            --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --pad: 96px;         /* vertical padding on each section */
+            --radius: 6px;       /* corner rounding on cards/buttons */
+            --max-width: 1080px; /* max page width */
         }
 
+        /* ============================================================
+           RESET
+        ============================================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--navy);
+            font-family: var(--font-body);
+            color: var(--black);
             background: var(--white);
             line-height: 1.7;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
         }
-
         a { color: inherit; text-decoration: none; }
 
-        /* =============================================
-           LAYOUT HELPERS
-        ============================================= */
+        /* ============================================================
+           LAYOUT
+        ============================================================ */
         .container {
-            max-width: 1100px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 28px;
+            padding: 0 32px;
         }
-
         section { padding: var(--pad) 0; }
 
+        /* ============================================================
+           SECTION HEADERS (used in About, Projects, Skills, Blog)
+           - .section-label : small uppercase label above the title
+           - .section-title : the big heading
+           - .section-desc  : optional subtitle below
+        ============================================================ -->
         .section-label {
-            display: inline-block;
+            display: block;
+            font-family: var(--font-body);
             font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--teal);
-            margin-bottom: 12px;
+            color: var(--gray-light);
+            margin-bottom: 10px;
         }
 
         .section-title {
-            font-size: clamp(28px, 4vw, 42px);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            color: var(--navy);
-            line-height: 1.15;
-            margin-bottom: 16px;
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 400;          /* DM Serif Display looks best at normal weight */
+            color: var(--black);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
         }
 
         .section-desc {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--gray);
-            max-width: 540px;
-            margin: 0 auto;
+            max-width: 520px;
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 52px;
         }
 
-        /* =============================================
+        .section-header.centered {
+            text-align: center;
+        }
+
+        .section-header.centered .section-desc {
+            margin: 0 auto;
+        }
+
+        /* ============================================================
            NAVIGATION
-        ============================================= */
+           - Change nav links: find the <ul class="nav-links"> block
+           - Change your name/logo: find <a class="nav-logo">
+        ============================================================ */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--gray-border);
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s;
         }
 
         nav.scrolled {
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
         }
 
         .nav-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 64px;
+            height: 60px;
         }
 
+        /* ── Logo / your name ── */
         .nav-logo {
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--navy);
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            letter-spacing: -0.3px;
         }
 
-        .nav-logo span { color: var(--teal); }
-
+        /* ── Nav links ── */
         .nav-links {
             display: flex;
             align-items: center;
@@ -134,35 +173,17 @@
 
         .nav-links a {
             font-size: 14px;
-            font-weight: 500;
-            color: var(--gray);
+            font-weight: 400;
+            color: var(--gray-light);
             transition: color 0.2s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0; right: 0;
-            height: 2px;
-            background: var(--teal);
-            border-radius: 2px;
-            transform: scaleX(0);
-            transition: transform 0.2s ease;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--teal);
+            color: var(--black);
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            transform: scaleX(1);
-        }
-
-        /* Hamburger */
+        /* ── Mobile hamburger ── */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -170,209 +191,160 @@
             cursor: pointer;
             background: none;
             border: none;
-            padding: 6px;
+            padding: 4px;
         }
 
         .hamburger span {
             display: block;
-            width: 22px;
-            height: 2px;
-            background: var(--navy);
+            width: 20px;
+            height: 1.5px;
+            background: var(--black);
             border-radius: 2px;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
         .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 64px; left: 0; right: 0;
+            top: 60px; left: 0; right: 0;
             background: white;
             border-bottom: 1px solid var(--gray-border);
             z-index: 999;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
 
         .mobile-menu.open { display: block; }
 
         .mobile-menu a {
             display: block;
-            padding: 14px 28px;
+            padding: 14px 32px;
             font-size: 15px;
-            font-weight: 500;
-            color: var(--navy-light);
+            color: var(--gray-dark);
             border-bottom: 1px solid var(--gray-border);
-            transition: color 0.2s, background 0.2s;
+            transition: background 0.15s;
         }
 
-        .mobile-menu a:last-child { border-bottom: none; }
-        .mobile-menu a:hover { color: var(--teal); background: var(--teal-pale); }
+        .mobile-menu a:hover { background: var(--gray-bg); }
 
-        /* =============================================
+        /* ============================================================
            BUTTONS
-        ============================================= */
+           .btn-primary  : solid black button (main CTA)
+           .btn-secondary: outlined button (secondary CTA)
+
+           To change button text: find the <a class="btn ..."> tags
+           To change button color: edit background/border/color below
+        ============================================================ */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.22s ease;
-            text-decoration: none;
-            border: none;
-            font-family: inherit;
+            transition: all 0.18s ease;
+            border: 1.5px solid transparent;
             line-height: 1;
         }
 
         .btn-primary {
-            background: var(--teal);
-            color: white;
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
         }
 
         .btn-primary:hover {
-            background: var(--teal-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(13, 148, 136, 0.35);
+            background: var(--gray-dark);
+            border-color: var(--gray-dark);
         }
 
         .btn-secondary {
-            background: white;
-            color: var(--navy);
-            border: 1.5px solid var(--gray-border);
+            background: transparent;
+            color: var(--black);
+            border-color: var(--gray-border);
         }
 
         .btn-secondary:hover {
-            border-color: var(--teal);
-            color: var(--teal);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-color: var(--black);
         }
 
-        /* =============================================
-           HERO
-        ============================================= */
+        /* ============================================================
+           HERO SECTION
+           - Change your name: find <h1 class="hero-name">
+           - Change subtitle: find <p class="hero-subtitle">
+           - Change button labels: find the two .btn elements
+        ============================================================ */
         #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 64px;
-            background: var(--white);
-            position: relative;
-            overflow: hidden;
+            padding-top: 60px;
+            border-bottom: 1px solid var(--gray-border);
         }
 
-        #home::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(13,148,136,0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
+        .hero-content { max-width: 660px; }
 
-        .hero-content {
-            max-width: 680px;
-            position: relative;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--teal-pale);
-            border: 1px solid var(--teal-border);
-            color: var(--teal);
-            font-size: 13px;
-            font-weight: 600;
-            padding: 7px 16px;
-            border-radius: 100px;
-            margin-bottom: 28px;
-            letter-spacing: 0.2px;
-        }
-
-        .hero-badge-dot {
-            width: 7px;
-            height: 7px;
-            background: var(--teal);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.75); }
-        }
-
+        /* ── Big title ── */
         .hero-name {
-            font-size: clamp(44px, 7vw, 80px);
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -3px;
-            color: var(--navy);
-            margin-bottom: 24px;
+            font-family: var(--font-heading);
+            font-size: clamp(40px, 6vw, 72px);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -1px;
+            color: var(--black);
+            margin-bottom: 20px;
         }
 
-        .hero-name .accent { color: var(--teal); }
-
+        /* ── Subtitle under the name ── */
         .hero-subtitle {
-            font-size: clamp(16px, 2vw, 19px);
+            font-size: clamp(15px, 1.6vw, 17px);
             color: var(--gray);
             font-weight: 400;
-            max-width: 520px;
-            margin-bottom: 44px;
+            max-width: 500px;
+            margin-bottom: 36px;
             line-height: 1.65;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
+        /* ── Small line of metadata under buttons ── */
         .hero-meta {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-top: 72px;
-            color: var(--gray);
+            gap: 10px;
+            margin-top: 64px;
+            color: var(--gray-light);
             font-size: 13px;
         }
 
         .hero-meta-line {
-            width: 36px;
+            width: 28px;
             height: 1px;
             background: var(--gray-border);
         }
 
-        /* =============================================
-           ABOUT
-        ============================================= */
-        #about { background: var(--gray-light); }
+        /* ============================================================
+           ABOUT SECTION
+           - Change bio paragraphs: find the three <p> tags in .about-bio
+           - Change stat numbers: find <div class="stat-number">
+           - Change stat labels:  find <div class="stat-label">
+        ============================================================ */
+        #about { background: var(--gray-bg); }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 72px;
-            align-items: center;
-        }
-
-        .about-label { margin-bottom: 12px; }
-
-        .about-bio-title {
-            font-size: clamp(22px, 2.5vw, 30px);
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: var(--navy);
-            margin-bottom: 24px;
-            line-height: 1.25;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: start;
         }
 
         .about-bio p {
@@ -384,190 +356,160 @@
 
         .about-bio p:last-child { margin-bottom: 0; }
 
+        /* ── 4 stat cards ── */
         .stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 12px;
         }
 
         .stat-card {
-            background: white;
+            background: var(--white);
             border: 1px solid var(--gray-border);
-            border-radius: 14px;
-            padding: 28px 20px;
+            border-radius: var(--radius);
+            padding: 24px 20px;
             text-align: center;
-            transition: all 0.25s ease;
+            transition: border-color 0.2s;
         }
 
-        .stat-card:hover {
-            border-color: var(--teal);
-            transform: translateY(-5px);
-            box-shadow: 0 16px 40px rgba(13, 148, 136, 0.12);
-        }
+        .stat-card:hover { border-color: var(--black); }
 
+        /* ── Change the number: edit the text inside .stat-number ── */
         .stat-number {
-            font-size: 38px;
-            font-weight: 800;
-            color: var(--teal);
-            letter-spacing: -1px;
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 400;
+            color: var(--black);
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .stat-label {
-            font-size: 13px;
+            font-size: 12px;
+            color: var(--gray-light);
             font-weight: 500;
-            color: var(--gray);
-            line-height: 1.4;
+            letter-spacing: 0.3px;
         }
 
-        /* =============================================
-           PROJECTS
-        ============================================= */
+        /* ============================================================
+           PROJECTS SECTION
+           - To add/remove a project: copy or delete a .project-card block
+           - Change project title: edit <h3 class="project-title">
+           - Change description:   edit <p class="project-desc">
+           - Change tags:          edit the <span class="tag"> items
+           - Change GitHub link:   edit href on <a class="project-link">
+        ============================================================ */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 16px;
         }
 
         .project-card {
-            background: white;
+            background: var(--white);
             border: 1px solid var(--gray-border);
-            border-radius: 14px;
-            padding: 28px;
+            border-radius: var(--radius);
+            padding: 24px;
             display: flex;
             flex-direction: column;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--teal), var(--teal-light));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .project-card:hover {
-            border-color: var(--teal-border);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 48px rgba(13, 148, 136, 0.13);
-        }
-
-        .project-card:hover::after { transform: scaleX(1); }
-
-        .project-icon {
-            width: 46px;
-            height: 46px;
-            background: var(--teal-pale);
-            border: 1px solid var(--teal-border);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            margin-bottom: 18px;
+            border-color: var(--black);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .project-title {
-            font-size: 16.5px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 10px;
-            letter-spacing: -0.3px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 8px;
         }
 
         .project-desc {
-            font-size: 14px;
+            font-size: 13.5px;
             color: var(--gray);
             margin-bottom: 18px;
             flex: 1;
-            line-height: 1.65;
+            line-height: 1.6;
         }
 
+        /* ── Tags (tool badges) ── */
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
+        /* ── To change tag style: edit .tag below ── */
         .tag {
-            background: var(--teal-pale);
-            color: var(--teal);
-            border: 1px solid var(--teal-border);
+            background: transparent;
+            color: var(--gray);
+            border: 1px solid var(--gray-border);
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 500;
             padding: 3px 10px;
             border-radius: 100px;
-            letter-spacing: 0.2px;
         }
 
         .project-link {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--teal);
-            transition: gap 0.2s;
+            gap: 5px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--gray-light);
+            transition: color 0.2s, gap 0.2s;
         }
 
-        .project-link:hover { gap: 10px; }
+        .project-link:hover {
+            color: var(--black);
+            gap: 8px;
+        }
 
-        /* =============================================
-           SKILLS
-        ============================================= */
-        #skills { background: var(--gray-light); }
+        /* ============================================================
+           SKILLS SECTION
+           - To add a skill: add a <span class="skill-pill">Name</span>
+           - To add a category: copy a .skill-category block
+           - To rename a category: edit the .skill-cat-title text
+        ============================================================ */
+        #skills { background: var(--gray-bg); }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 16px;
         }
 
         .skill-category {
-            background: white;
+            background: var(--white);
             border: 1px solid var(--gray-border);
-            border-radius: 14px;
+            border-radius: var(--radius);
             padding: 28px;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .skill-category:hover {
-            border-color: var(--teal-border);
-            box-shadow: 0 8px 24px rgba(13, 148, 136, 0.08);
         }
 
         .skill-cat-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 18px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray-border);
         }
 
+        /* ── Category emoji icon — change the text inside the span ── */
         .skill-cat-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--teal-pale);
-            border: 1px solid var(--teal-border);
-            border-radius: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 18px;
+            line-height: 1;
         }
 
         .skill-cat-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--navy);
-            letter-spacing: -0.3px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
         }
 
         .skill-pills {
@@ -576,83 +518,72 @@
             gap: 8px;
         }
 
+        /* ── Skill pill style ── */
         .skill-pill {
-            background: var(--gray-mid);
-            color: var(--navy-light);
-            font-size: 13px;
-            font-weight: 500;
-            padding: 6px 14px;
+            background: var(--gray-bg);
+            color: var(--gray-dark);
+            font-size: 12.5px;
+            font-weight: 400;
+            padding: 5px 13px;
             border-radius: 100px;
             border: 1px solid var(--gray-border);
-            transition: all 0.2s;
+            transition: border-color 0.2s, color 0.2s;
             cursor: default;
         }
 
         .skill-pill:hover {
-            background: var(--teal-pale);
-            border-color: var(--teal);
-            color: var(--teal);
+            border-color: var(--black);
+            color: var(--black);
         }
 
-        /* =============================================
-           BLOG
-        ============================================= */
+        /* ============================================================
+           BLOG SECTION
+           - Change post title: edit <h3 class="blog-title">
+           - Change date:       edit <div class="blog-date">
+           - Change summary:    edit <p class="blog-summary">
+           - Change link:       edit href on <a class="blog-link">
+        ============================================================ */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 16px;
         }
 
         .blog-card {
-            background: white;
+            background: var(--white);
             border: 1px solid var(--gray-border);
-            border-radius: 14px;
-            overflow: hidden;
+            border-radius: var(--radius);
+            padding: 28px;
             display: flex;
             flex-direction: column;
-            transition: all 0.25s ease;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .blog-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
-            border-color: var(--teal-border);
-        }
-
-        .blog-card-header {
-            padding: 36px 28px;
-            font-size: 32px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--teal-pale) 0%, #e0f2fe 100%);
-        }
-
-        .blog-card-body {
-            padding: 24px 28px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+            border-color: var(--black);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .blog-date {
             font-size: 11px;
-            font-weight: 700;
-            color: var(--teal);
+            font-weight: 500;
+            color: var(--gray-light);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 10px;
         }
 
         .blog-title {
-            font-size: 16.5px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 10px;
-            line-height: 1.4;
-            letter-spacing: -0.3px;
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--black);
+            line-height: 1.35;
+            margin-bottom: 12px;
         }
 
         .blog-summary {
-            font-size: 14px;
+            font-size: 13.5px;
             color: var(--gray);
             line-height: 1.65;
             flex: 1;
@@ -662,91 +593,94 @@
         .blog-link {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--teal);
-            transition: gap 0.2s;
+            gap: 5px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--gray-light);
+            transition: color 0.2s, gap 0.2s;
         }
 
-        .blog-link:hover { gap: 10px; }
+        .blog-link:hover {
+            color: var(--black);
+            gap: 8px;
+        }
 
-        /* =============================================
-           CONTACT
-        ============================================= */
+        /* ============================================================
+           CONTACT SECTION
+           - Change email:    find href="mailto:..." and the link text
+           - Change GitHub:   find href="https://github.com/..."
+           - Change LinkedIn: find href="[your-linkedin-url]"
+           - Change tagline:  find <p class="contact-tagline">
+        ============================================================ */
         #contact {
-            background: var(--navy);
+            background: var(--black);
         }
 
-        #contact .section-label { color: var(--teal-light); }
-        #contact .section-title { color: white; }
+        #contact .section-label { color: #555; }
+        #contact .section-title { color: var(--white); }
 
         .contact-tagline {
-            font-size: 16px;
-            color: #94a3b8;
-            text-align: center;
-            margin-bottom: 52px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 15px;
+            color: #777;
+            margin-bottom: 44px;
+            max-width: 460px;
+            line-height: 1.6;
         }
 
         .contact-links {
             display: flex;
-            justify-content: center;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
+        /* ── Each contact button ── */
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 15px 26px;
-            border-radius: 10px;
-            color: white;
-            font-size: 14.5px;
-            font-weight: 500;
-            transition: all 0.22s ease;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 13px 22px;
+            border-radius: var(--radius);
+            color: #ccc;
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.18s;
         }
 
         .contact-link:hover {
-            background: var(--teal);
-            border-color: var(--teal);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(13, 148, 136, 0.3);
+            background: var(--white);
+            border-color: var(--white);
+            color: var(--black);
         }
 
-        .contact-icon { width: 18px; height: 18px; flex-shrink: 0; }
+        .contact-icon { width: 17px; height: 17px; flex-shrink: 0; }
 
-        /* =============================================
+        /* ============================================================
            FOOTER
-        ============================================= */
+           - Change footer text: find the <footer> block at the bottom
+        ============================================================ */
         footer {
-            background: var(--navy-mid);
-            color: #475569;
+            background: #111;
+            color: #444;
             text-align: center;
-            padding: 28px 24px;
+            padding: 24px;
             font-size: 13px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid #1a1a1a;
         }
 
-        footer a {
-            color: var(--teal);
-            font-weight: 500;
-        }
+        footer a { color: #666; }
+        footer a:hover { color: #aaa; }
 
-        footer a:hover { color: var(--teal-light); }
-
-        /* =============================================
+        /* ============================================================
            SCROLL REVEAL ANIMATION
-        ============================================= */
+           Elements with class "reveal" fade in when scrolled into view.
+           To disable: remove class="reveal" from any element.
+        ============================================================ */
         .reveal {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.55s ease, transform 0.55s ease;
+            transform: translateY(18px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .reveal.visible {
@@ -754,44 +688,48 @@
             transform: none;
         }
 
-        /* =============================================
-           RESPONSIVE
-        ============================================= */
+        /* ============================================================
+           DIVIDER LINE (used between sections)
+        ============================================================ */
+        .divider {
+            height: 1px;
+            background: var(--gray-border);
+            margin: 0;
+        }
+
+        /* ============================================================
+           RESPONSIVE — mobile breakpoints
+        ============================================================ */
         @media (max-width: 960px) {
-            .about-grid { grid-template-columns: 1fr; gap: 48px; }
-            .projects-grid { grid-template-columns: repeat(2, 1fr); }
-            .skills-grid { grid-template-columns: 1fr; }
-            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid       { grid-template-columns: 1fr; gap: 48px; }
+            .projects-grid    { grid-template-columns: repeat(2, 1fr); }
+            .skills-grid      { grid-template-columns: 1fr; }
+            .blog-grid        { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 640px) {
             :root { --pad: 64px; }
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .blog-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-            .contact-links { flex-direction: column; align-items: center; }
-            .contact-link { width: 100%; max-width: 300px; justify-content: center; }
-            .hero-buttons { flex-direction: column; }
-            .btn { justify-content: center; }
-            .hero-name { letter-spacing: -2px; }
-        }
-
-        @media (max-width: 400px) {
-            .stats-grid { grid-template-columns: 1fr; }
+            .nav-links        { display: none; }
+            .hamburger        { display: flex; }
+            .projects-grid    { grid-template-columns: 1fr; }
+            .blog-grid        { grid-template-columns: 1fr; }
+            .stats-grid       { grid-template-columns: 1fr 1fr; }
+            .hero-buttons     { flex-direction: column; align-items: flex-start; }
+            .contact-links    { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<!-- ================================================
+<!-- ================================================================
      NAVIGATION
-================================================ -->
+     ── Logo: change "Soheil Jamali" to your name
+     ── Links: add/remove <li> items to change nav items
+================================================================ -->
 <nav id="navbar">
     <div class="container">
         <div class="nav-inner">
-            <a href="#home" class="nav-logo">[Your<span>Name</span>]</a>
+            <a href="#home" class="nav-logo">Soheil Jamali</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -817,76 +755,85 @@
 </div>
 
 
-<!-- ================================================
-     HERO
-================================================ -->
+<!-- ================================================================
+     HERO SECTION
+     ── Big name/title: edit <h1 class="hero-name">
+     ── Subtitle:       edit <p class="hero-subtitle">
+     ── Button 1 text:  change "View projects" inside .btn-primary
+     ── Button 2 text:  change "Download CV"  inside .btn-secondary
+     ── Metadata line:  edit the text after the dash in .hero-meta
+================================================================ -->
 <section id="home">
     <div class="container">
         <div class="hero-content">
 
-            <div class="hero-badge">
-                <div class="hero-badge-dot"></div>
-                Available for new opportunities
-            </div>
-
             <h1 class="hero-name">
-                [Your<br><span class="accent">Name]</span>
+                ML engineer · drug discovery
             </h1>
 
             <p class="hero-subtitle">
-                ML Engineer focused on drug discovery, molecular property prediction, and computational biology.
+                Building predictive models for molecular property prediction,
+                ADMET screening, and target identification.
             </p>
 
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-                        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-                    </svg>
-                    View My Projects
+                    View projects
                 </a>
+                <!-- href="cv.pdf" — put your CV file next to index.html -->
                 <a href="cv.pdf" class="btn btn-secondary" download>
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
-                    </svg>
                     Download CV
                 </a>
             </div>
 
             <div class="hero-meta">
                 <div class="hero-meta-line"></div>
-                <span>ML Engineer &nbsp;·&nbsp; Drug Discovery &nbsp;·&nbsp; [Your City, Country]</span>
+                <!-- ── Edit your location and title here ── -->
+                ML Engineer &nbsp;·&nbsp; Drug Discovery &nbsp;·&nbsp; [Fayetteville, Arkansas, USA]
             </div>
 
         </div>
     </div>
 </section>
 
+<div class="divider"></div>
 
-<!-- ================================================
-     ABOUT
-================================================ -->
+
+<!-- ================================================================
+     ABOUT SECTION
+     ── Edit the three <p> paragraphs below to change your bio
+     ── Edit .stat-number text (e.g. "2+") to update your stats
+     ── Edit .stat-label text to rename a stat card
+================================================================ -->
 <section id="about">
     <div class="container">
         <div class="about-grid">
 
             <div class="about-bio reveal">
-                <div class="section-label about-label">About Me</div>
-                <h2 class="about-bio-title">Bridging Machine Learning<br>&amp; Drug Discovery</h2>
+                <div class="section-header">
+                    <span class="section-label">About</span>
+                    <h2 class="section-title">Background</h2>
+                </div>
+                <!-- ── Edit your bio here ── -->
                 <p>
-                    I am an ML engineer with a background in [your degree], passionate about applying machine learning to accelerate drug discovery. I specialize in building predictive models that extract meaningful signals from complex biological and chemical data.
+                    I am an ML engineer with a background in [your degree], passionate about
+                    applying machine learning to accelerate drug discovery. I specialize in
+                    building predictive models that extract meaningful signals from complex
+                    biological and chemical data.
                 </p>
                 <p>
-                    I work with molecular data, genomics, and clinical datasets to build end-to-end predictive pipelines. My work spans ADMET property prediction, molecular graph neural networks, and NLP applied to biomedical literature.
+                    I work with molecular data, genomics, and clinical datasets to build
+                    end-to-end predictive pipelines. My work spans ADMET property prediction,
+                    molecular graph neural networks, and NLP applied to biomedical literature.
                 </p>
                 <p>
-                    Currently seeking roles at pharmaceutical and biotech companies where I can contribute to impactful, data-driven drug discovery efforts.
+                    Currently seeking roles at pharmaceutical and biotech companies where I
+                    can contribute to impactful, data-driven drug discovery efforts.
                 </p>
             </div>
 
             <div class="stats-grid reveal">
+                <!-- ── Change the number and label for each stat card ── -->
                 <div class="stat-card">
                     <div class="stat-number">2+</div>
                     <div class="stat-label">Years of Experience</div>
@@ -909,115 +856,121 @@
     </div>
 </section>
 
+<div class="divider"></div>
 
-<!-- ================================================
-     PROJECTS
-================================================ -->
+
+<!-- ================================================================
+     PROJECTS SECTION
+     ── To add a project: copy one full <div class="project-card"> block
+     ── To remove a project: delete one full <div class="project-card"> block
+     ── Edit title, description, tags, and GitHub link per card
+================================================================ -->
 <section id="projects">
     <div class="container">
+
         <div class="section-header reveal">
-            <div class="section-label">Portfolio</div>
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-desc">Machine learning projects at the intersection of AI and pharmaceutical sciences.</p>
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-desc">Machine learning applied to pharmaceutical and biological problems.</p>
         </div>
 
         <div class="projects-grid">
 
+            <!-- PROJECT 1 ── Edit title, desc, tags, href below -->
             <div class="project-card reveal">
-                <div class="project-icon">🧪</div>
-                <h3 class="project-title">Drug Property Prediction</h3>
-                <p class="project-desc">Predicting ADMET properties of drug candidates using molecular fingerprints and ChEMBL data with ensemble ML models.</p>
+                <h3 class="project-title">Drug property prediction</h3>
+                <p class="project-desc">ADMET modeling using molecular fingerprints and ChEMBL data with ensemble ML models.</p>
                 <div class="project-tags">
                     <span class="tag">RDKit</span>
                     <span class="tag">scikit-learn</span>
                     <span class="tag">Python</span>
                 </div>
                 <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                    GitHub
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
             </div>
 
+            <!-- PROJECT 2 -->
             <div class="project-card reveal">
-                <div class="project-icon">🔬</div>
-                <h3 class="project-title">Molecular Graph Neural Network</h3>
-                <p class="project-desc">GNN architecture for molecule toxicity classification, representing atoms as nodes and bonds as edges.</p>
+                <h3 class="project-title">Molecular GNN</h3>
+                <p class="project-desc">Graph nets for toxicity classification — atoms as nodes, bonds as edges.</p>
                 <div class="project-tags">
-                    <span class="tag">PyTorch Geometric</span>
+                    <span class="tag">PyTorch</span>
                     <span class="tag">DeepChem</span>
                 </div>
                 <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                    GitHub
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
             </div>
 
+            <!-- PROJECT 3 -->
             <div class="project-card reveal">
-                <div class="project-icon">📄</div>
-                <h3 class="project-title">Clinical Trial NLP</h3>
-                <p class="project-desc">Extracting clinical endpoints and adverse events from ClinicalTrials.gov text using fine-tuned BERT transformers.</p>
+                <h3 class="project-title">Clinical NLP</h3>
+                <p class="project-desc">Trial endpoint extraction from ClinicalTrials.gov using fine-tuned BERT models.</p>
                 <div class="project-tags">
-                    <span class="tag">HuggingFace</span>
-                    <span class="tag">spaCy</span>
                     <span class="tag">BERT</span>
+                    <span class="tag">spaCy</span>
+                    <span class="tag">HuggingFace</span>
                 </div>
                 <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                    GitHub
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
             </div>
 
+            <!-- PROJECT 4 -->
             <div class="project-card reveal">
-                <div class="project-icon">🎯</div>
-                <h3 class="project-title">Target Identification</h3>
-                <p class="project-desc">ML pipeline on proteomics data to identify and prioritize drug targets using gradient boosting and feature selection.</p>
+                <h3 class="project-title">Target identification</h3>
+                <p class="project-desc">ML pipeline on proteomics data to identify and prioritize drug targets.</p>
                 <div class="project-tags">
                     <span class="tag">XGBoost</span>
                     <span class="tag">BioPython</span>
                     <span class="tag">pandas</span>
                 </div>
                 <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                    GitHub
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
             </div>
 
+            <!-- PROJECT 5 -->
             <div class="project-card reveal">
-                <div class="project-icon">💊</div>
-                <h3 class="project-title">Drug Repurposing</h3>
-                <p class="project-desc">Knowledge graph approach to identify novel therapeutic indications for existing approved drug compounds.</p>
+                <h3 class="project-title">Drug repurposing</h3>
+                <p class="project-desc">Knowledge graph approach to identify novel therapeutic uses for existing approved drugs.</p>
                 <div class="project-tags">
                     <span class="tag">NetworkX</span>
                     <span class="tag">Python</span>
                 </div>
                 <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                    GitHub
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
             </div>
 
+            <!-- PROJECT 6 -->
             <div class="project-card reveal">
-                <div class="project-icon">⚙️</div>
-                <h3 class="project-title">Bash Automation Scripts</h3>
-                <p class="project-desc">Bioinformatics pipeline automation scripts for batch processing genomics and sequencing data at scale.</p>
+                <h3 class="project-title">Bash automation scripts</h3>
+                <p class="project-desc">Bioinformatics pipeline automation for batch processing genomics and sequencing data.</p>
                 <div class="project-tags">
                     <span class="tag">Bash</span>
                     <span class="tag">Shell</span>
                     <span class="tag">Linux</span>
                 </div>
                 <a href="https://github.com/Soheilj71" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                    GitHub
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
@@ -1027,24 +980,30 @@
     </div>
 </section>
 
+<div class="divider"></div>
 
-<!-- ================================================
-     SKILLS
-================================================ -->
+
+<!-- ================================================================
+     SKILLS SECTION
+     ── To add a skill pill: add <span class="skill-pill">Name</span>
+     ── To add a category: copy a full .skill-category block
+     ── To change category icon: edit the emoji in .skill-cat-icon
+================================================================ -->
 <section id="skills">
     <div class="container">
+
         <div class="section-header reveal">
-            <div class="section-label">Expertise</div>
-            <h2 class="section-title">Technical Skills</h2>
-            <p class="section-desc">Tools and technologies I use across the ML, cheminformatics, and data science stack.</p>
+            <span class="section-label">Expertise</span>
+            <h2 class="section-title">Skills</h2>
+            <p class="section-desc">Tools and technologies across the ML and bioinformatics stack.</p>
         </div>
 
         <div class="skills-grid">
 
             <div class="skill-category reveal">
                 <div class="skill-cat-header">
-                    <div class="skill-cat-icon">🤖</div>
-                    <div class="skill-cat-title">ML &amp; AI</div>
+                    <span class="skill-cat-icon">🤖</span>
+                    <span class="skill-cat-title">ML &amp; AI</span>
                 </div>
                 <div class="skill-pills">
                     <span class="skill-pill">PyTorch</span>
@@ -1057,8 +1016,8 @@
 
             <div class="skill-category reveal">
                 <div class="skill-cat-header">
-                    <div class="skill-cat-icon">🧬</div>
-                    <div class="skill-cat-title">Pharma / Bio Tools</div>
+                    <span class="skill-cat-icon">🧬</span>
+                    <span class="skill-cat-title">Pharma / Bio Tools</span>
                 </div>
                 <div class="skill-pills">
                     <span class="skill-pill">RDKit</span>
@@ -1071,8 +1030,8 @@
 
             <div class="skill-category reveal">
                 <div class="skill-cat-header">
-                    <div class="skill-cat-icon">💻</div>
-                    <div class="skill-cat-title">Data &amp; Programming</div>
+                    <span class="skill-cat-icon">💻</span>
+                    <span class="skill-cat-title">Data &amp; Programming</span>
                 </div>
                 <div class="skill-pills">
                     <span class="skill-pill">Python</span>
@@ -1086,8 +1045,8 @@
 
             <div class="skill-category reveal">
                 <div class="skill-cat-header">
-                    <div class="skill-cat-icon">☁️</div>
-                    <div class="skill-cat-title">Platforms</div>
+                    <span class="skill-cat-icon">☁️</span>
+                    <span class="skill-cat-title">Platforms</span>
                 </div>
                 <div class="skill-pills">
                     <span class="skill-pill">GitHub</span>
@@ -1101,63 +1060,63 @@
     </div>
 </section>
 
+<div class="divider"></div>
 
-<!-- ================================================
-     BLOG
-================================================ -->
+
+<!-- ================================================================
+     BLOG SECTION
+     ── To change a post: edit .blog-date, .blog-title, .blog-summary
+     ── To link to a real post: replace href="#" with your post URL
+     ── To add a post: copy one full .blog-card block
+================================================================ -->
 <section id="blog">
     <div class="container">
+
         <div class="section-header reveal">
-            <div class="section-label">Writing</div>
-            <h2 class="section-title">Blog &amp; Notes</h2>
-            <p class="section-desc">Thoughts on ML in drug discovery, tutorials, and research notes.</p>
+            <span class="section-label">Writing</span>
+            <h2 class="section-title">Blog &amp; notes</h2>
+            <p class="section-desc">Tutorials, paper summaries, and notes on ML in drug discovery.</p>
         </div>
 
         <div class="blog-grid">
 
+            <!-- BLOG POST 1 ── Edit date, title, summary, link -->
             <div class="blog-card reveal">
-                <div class="blog-card-header">🧬</div>
-                <div class="blog-card-body">
-                    <div class="blog-date">June 2026</div>
-                    <h3 class="blog-title">How AlphaFold Changed Drug Discovery</h3>
-                    <p class="blog-summary">An overview of how DeepMind's AlphaFold protein structure predictions have reshaped target identification and structure-based drug design.</p>
-                    <a href="#" class="blog-link">
-                        Read more
-                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+                <div class="blog-date">June 2026</div>
+                <h3 class="blog-title">How AlphaFold changed drug discovery</h3>
+                <p class="blog-summary">How DeepMind's protein structure predictions have reshaped target identification and structure-based drug design.</p>
+                <a href="#" class="blog-link">
+                    Read more
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
 
+            <!-- BLOG POST 2 -->
             <div class="blog-card reveal">
-                <div class="blog-card-header">⚗️</div>
-                <div class="blog-card-body">
-                    <div class="blog-date">May 2026</div>
-                    <h3 class="blog-title">Getting Started with RDKit for Beginners</h3>
-                    <p class="blog-summary">A practical introduction to RDKit — the open-source cheminformatics library — covering molecular representations, fingerprints, and visualization.</p>
-                    <a href="#" class="blog-link">
-                        Read more
-                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+                <div class="blog-date">May 2026</div>
+                <h3 class="blog-title">Getting started with RDKit for beginners</h3>
+                <p class="blog-summary">A practical introduction to RDKit — molecular representations, fingerprints, substructure search, and visualization.</p>
+                <a href="#" class="blog-link">
+                    Read more
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
 
+            <!-- BLOG POST 3 -->
             <div class="blog-card reveal">
-                <div class="blog-card-header">🕸️</div>
-                <div class="blog-card-body">
-                    <div class="blog-date">April 2026</div>
-                    <h3 class="blog-title">Graph Neural Networks for Molecular Property Prediction</h3>
-                    <p class="blog-summary">How GNNs represent molecules as graphs and learn to predict properties like solubility, toxicity, and binding affinity from atomic structure.</p>
-                    <a href="#" class="blog-link">
-                        Read more
-                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+                <div class="blog-date">April 2026</div>
+                <h3 class="blog-title">Graph neural networks for molecular property prediction</h3>
+                <p class="blog-summary">How GNNs represent molecules as graphs and learn to predict solubility, toxicity, and binding affinity.</p>
+                <a href="#" class="blog-link">
+                    Read more
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
 
         </div>
@@ -1165,42 +1124,45 @@
 </section>
 
 
-<!-- ================================================
-     CONTACT
-================================================ -->
+<!-- ================================================================
+     CONTACT SECTION
+     ── Change email:    edit href="mailto:..." and the visible text
+     ── Change LinkedIn: edit href="[your-linkedin-url]"
+     ── Change tagline:  edit <p class="contact-tagline">
+================================================================ -->
 <section id="contact">
     <div class="container">
 
         <div class="section-header reveal">
-            <div class="section-label">Get In Touch</div>
-            <h2 class="section-title">Let's Connect</h2>
+            <span class="section-label">Contact</span>
+            <h2 class="section-title">Get in touch</h2>
         </div>
 
+        <!-- ── Edit this line ── -->
         <p class="contact-tagline">
             Open to ML engineering roles in pharmaceutical and biotech companies.
         </p>
 
         <div class="contact-links reveal">
 
-            <a href="mailto:[your@email.com]" class="contact-link">
-                <!-- Email icon -->
-                <svg class="contact-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <!-- ── Change email address in both the href and the text ── -->
+            <a href="mailto:[sjamali@uark.com]" class="contact-link">
+                <svg class="contact-icon" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                [your@email.com]
+                sjamali@uark.com
             </a>
 
             <a href="https://github.com/Soheilj71" class="contact-link" target="_blank" rel="noopener noreferrer">
-                <!-- GitHub icon -->
                 <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                 </svg>
                 github.com/Soheilj71
             </a>
 
-            <a href="[your-linkedin-url]" class="contact-link" target="_blank" rel="noopener noreferrer">
-                <!-- LinkedIn icon -->
+            <!-- ── Replace [your-linkedin-url] with your real LinkedIn URL ── -->
+            <a href="https://www.linkedin.com/in/soheiljamali/" class="contact-link" target="_blank" rel="noopener noreferrer">
                 <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
@@ -1212,31 +1174,28 @@
 </section>
 
 
-<!-- ================================================
+<!-- ================================================================
      FOOTER
-================================================ -->
+     ── Edit the copyright name and year here
+================================================================ -->
 <footer>
-    <p>
-        &copy; 2026 [Your Name] &nbsp;·&nbsp;
-        Built with pure HTML, CSS &amp; JavaScript &nbsp;·&nbsp;
-        <a href="https://github.com/Soheilj71" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </p>
+    <p>&copy; 2026 Soheil Jamali &nbsp;·&nbsp; <a href="https://github.com/Soheilj71" target="_blank" rel="noopener noreferrer">GitHub</a></p>
 </footer>
 
 
-<!-- ================================================
-     JAVASCRIPT
-================================================ -->
+<!-- ================================================================
+     JAVASCRIPT — no need to edit this unless you want to add features
+================================================================ -->
 <script>
-    /* ---------- Navbar scroll shadow ---------- */
+    /* Navbar shadow on scroll */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 20);
+        navbar.classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
 
-    /* ---------- Active nav link on scroll ---------- */
-    const sections   = document.querySelectorAll('section[id]');
-    const navLinks   = document.querySelectorAll('.nav-links a');
+    /* Active nav link highlighting */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1251,7 +1210,7 @@
 
     sections.forEach(s => sectionObserver.observe(s));
 
-    /* ---------- Mobile hamburger ---------- */
+    /* Mobile menu */
     const hamburger  = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1271,7 +1230,7 @@
         }
     });
 
-    /* ---------- Scroll reveal ---------- */
+    /* Scroll reveal */
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1279,18 +1238,17 @@
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* ---------- Smooth scroll for anchor links ---------- */
+    /* Smooth scroll for anchor links */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             const target = document.querySelector(anchor.getAttribute('href'));
             if (target) {
                 e.preventDefault();
-                const top = target.getBoundingClientRect().top + window.scrollY - 64;
-                window.scrollTo({ top, behavior: 'smooth' });
+                window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 60, behavior: 'smooth' });
             }
         });
     });
